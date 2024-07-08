@@ -14,5 +14,5 @@ precio_total = producto_1 + producto_2 + producto_3
 iva = (precio_total * 21)/100
 
 print(f'El precio total es: ${precio_total}')
-print(f'El precio promedio es {precio_total//3}')
+print(f'El precio promedio es: ${precio_total//3}')
 print(f'El precio final mas %IVA es: ${precio_total + iva}')
