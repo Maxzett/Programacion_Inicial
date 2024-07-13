@@ -45,7 +45,7 @@ while cont < cant_participantes:
 
 promedio_edades = suma_edades//cant_participantes
 
-print(f"a. Nombre del participante con mas votos: {nombre_mas_votos}")
-print(f"b. Nombre y edad del participante con menos votos: {nombre_menos_votos}, {edad_menos_votos} años")
+print(f"a. Nombre del participante con mas votos: {nombre_mas_votos} con {mas_votos} votos")
+print(f"b. Nombre y edad del participante con menos votos: {nombre_menos_votos} de {edad_menos_votos} años")
 print(f"c. Promedio de edades de los participantes: {promedio_edades} años")
 print(f"d. Total de votos: {total_votos} votos")
