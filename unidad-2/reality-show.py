@@ -24,10 +24,10 @@ while cont < cant_participantes:
     nombre = str(input('Nombre participante: '))
     edad = int(input('Edad participante: '))
     while edad < 25:
-        edad = int(input('Ingrese nuevamente la edad: '))
+        edad = int(input('Valor erroneo. Ingrese nuevamente la edad: '))
     votos = int(input('Votos del participante: '))
     while votos <= 0:
-        votos = int(input('Ingrese nuevamente los votos: '))
+        votos = int(input('Valor erroneo. Ingrese nuevamente los votos: '))
         
     if votos > mas_votos:
         mas_votos = votos
