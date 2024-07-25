@@ -9,7 +9,7 @@ c. el promedio de edades de los candidatos
 d. total de votos emitidos.
 Todos los datos se ingresan mediante input()
 '''
-
+#necesita modificacion del float inf, remplazarlo por banderas.
 cont = 0
 cant_participantes = 3
 mas_votos = 0
