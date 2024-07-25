@@ -15,10 +15,10 @@ d. El total de partidas ganadas.
 e. El jugador más joven.
 '''
 contador = 0
-total_participantes = 3
+total_participantes = 20
 total_partidas_ganadas = 0
 #maximos
-# bandera_partidas_maximas = True
+bandera_partidas_maximas = True
 nombre_mas_partidas_ganadas = ''
 partidas_ganadas_maximas = 0
 #minimos
@@ -45,9 +45,10 @@ while contador < total_participantes:
         partidas_ganadas = int(input('Valor erroneo. Ingrese nuevamente la cantidad de partidas ganadas: '))
     
     #a. Nombre del jugador con más partidas ganadas.
-    if partidas_ganadas > partidas_ganadas_maximas:
+    if partidas_ganadas > partidas_ganadas_maximas or bandera_partidas_maximas == True:
         partidas_ganadas_maximas = partidas_ganadas
         nombre_mas_partidas_ganadas = nombre
+        bandera_partidas_maximas = False
     
     #b. Nombre y edad del jugador con menos partidas ganadas.
     if partidas_ganadas < partidas_ganadas_minimas or bandera_partidas_minimas == True:
