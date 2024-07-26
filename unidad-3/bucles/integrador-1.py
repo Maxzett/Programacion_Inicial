@@ -32,7 +32,8 @@ while True:
 promedio_positivos = suma_positivos / cant_positivos
 porcentaje_negativos = (cant_negativos / total_ingresos) * 100 
 
-print(f'''La suma de numeros negativos es: {suma_negativos}
+print(f'''
+La suma de numeros negativos es: {suma_negativos}
 La suma de numeros positivos es: {suma_positivos}
 La cantidad de numeros negativos ingresados es: {cant_negativos}
 El promedio de numeros positivos es: {promedio_positivos}
