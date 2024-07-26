@@ -23,7 +23,6 @@ contador_autos_dos_puertas_reno = 0
 
 edad_minima = 0 
 bandera_mas_joven = True
-cliente_mas_joven = ''
 
 total_ventas = 0
 contador_renault = 0
@@ -32,16 +31,13 @@ contador_bmw = 0
 
 edad_maxima_fiat = 0
 bandera_mas_viejo_fiat = 0
-cliente_mas_viejo_fiat = ''
-
-menos_ventas = 0
-bandera_menos_ventas = True
-apellido_vendedor_menos_ventas = ''
 
 contador_clientes_cuatro_puertas = 0
 acumulador_edades_cuatro_puertas = 0
 
-contador_ventas = 0
+contador_zapata = 0
+contador_quiroz = 0
+contador_simino = 0
 
 while True:
     nombre_cliente = input('Nombre del cliente: ')
@@ -61,23 +57,24 @@ while True:
     apellido_vendedor = input('Ingrese el apellido del vendedor (Zapata, Quiroz, Simino): ')
     while apellido_vendedor != 'Zapata' and apellido_vendedor != 'Quiroz' and apellido_vendedor != 'Simino':
         apellido_vendedor = input('Error, vuelva a ingresar el apellido del vendedor (Zapata, Quiroz, Simino): ')
-    contador_ventas += 1
-    
+    #cantidad de vehiculos de 2 puertas que sean de la marca renault
     if marca_auto == 'renault' and cantidad_puertas == 2:
         contador_autos_dos_puertas_reno += 1
+        
     #nombre cliente mas joven 
-    if edad_cliente < edad_minima or bandera_mas_joven == True:
-        edad_cliente = edad_minima
+    if edad_cliente < edad_minima or bandera_mas_joven:
+        edad_minima = edad_cliente
         cliente_mas_joven = nombre_cliente
         bandera_mas_joven = False
-    
+        
+    #contando las marcas
     if marca_auto == 'renault':
         contador_renault += 1
     elif marca_auto == 'fiat':
         contador_fiat += 1
         #nombre cliente mas viejo de fiat
-        if edad_cliente > edad_maxima_fiat or bandera_mas_viejo_fiat == True:
-            edad_cliente = edad_maxima_fiat
+        if edad_cliente > edad_maxima_fiat or bandera_mas_viejo_fiat:
+            edad_maxima_fiat = edad_cliente
             cliente_mas_viejo_fiat = nombre_cliente
             bandera_mas_viejo_fiat = False
     else:
@@ -87,24 +84,40 @@ while True:
     if cantidad_puertas == 4:
         contador_clientes_cuatro_puertas += 1
         acumulador_edades_cuatro_puertas += edad_cliente
-    
-    if contador_ventas < menos_ventas or bandera_menos_ventas == True:
-        menos_ventas = contador_ventas
-        apellido_vendedor_menos_ventas = apellido_vendedor
-        bandera_menos_ventas = False
         
+    #contando las ventas de cada vendedor
+    if apellido_vendedor == 'Zapata':
+        contador_zapata += 1
+    elif apellido_vendedor == 'Quiroz':
+        contador_quiroz += 1
+    else:
+        contador_simino += 1
+    
     print('-'*50)
     total_ventas += 1    
         
     pregunta = input('Desea cargar otra venta (si/no): ')
     if pregunta == 'no':
         break
-    
-promedio_edad_clientes_cuatro_puertas = acumulador_edades_cuatro_puertas / contador_clientes_cuatro_puertas
 
+#total_ventas = contador_renault + contador_fiat + contador_bmw
+if contador_clientes_cuatro_puertas < 0:
+    promedio_edad_clientes_cuatro_puertas = acumulador_edades_cuatro_puertas / contador_clientes_cuatro_puertas
+else:
+    promedio_edad_clientes_cuatro_puertas = 0
+
+#porcentajes de ventas cada marca
 porcentaje_renault = (contador_renault / total_ventas ) * 100
 porcentaje_fiat = (contador_fiat / total_ventas ) * 100
 porcentaje_bmw = (contador_bmw / total_ventas ) * 100
+
+#G-Apellido del vendedor que menos vendio
+if contador_zapata < contador_quiroz and contador_zapata < contador_simino:
+    apellido_vendedor_menos_ventas = 'Zapata'
+elif contador_quiroz < contador_simino:
+    apellido_vendedor_menos_ventas = 'Quiroz'
+else:
+    apellido_vendedor_menos_ventas = 'Simino'
 
 print(f'''
 A-Cantidad de vehiculos de 2 puertas que sean de la marca renault: {contador_autos_dos_puertas_reno}
